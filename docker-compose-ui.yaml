@@ -30,7 +30,7 @@ services:
         
   aas-registry:
     image: eclipsebasyx/aas-registry-log-mem:2.0.0-SNAPSHOT
-    container_name: aas-registry
+    container_name: aas-registry_hd
     ports:
       - 8082:8080
     volumes:
