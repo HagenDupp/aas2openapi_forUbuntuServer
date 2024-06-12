@@ -32,7 +32,7 @@ services:
     image: eclipsebasyx/aas-registry-log-mem:2.0.0-SNAPSHOT
     container_name: aas-registry_hd
     ports:
-      - 8082:8080
+      - 8083:8080
     volumes:
       - ./aas-registry.yml:/workspace/config/application.yml
     restart: always
@@ -43,7 +43,7 @@ services:
     ports:
       - "3000:3000"
     environment:
-      VITE_REGISTRY_PATH: "http://localhost:8082/api/v3.0"
+      VITE_REGISTRY_PATH: "http://localhost:8083/api/v3.0"
       VITE_AAS_REPO_PATH: "http://localhost:8081/shells"
       VITE_SUBMODEL_REPO_PATH: "http://localhost:8081/submodels"
       VITE_CD_REPO_PATH: "http://localhost:8081/concept-descriptions"
