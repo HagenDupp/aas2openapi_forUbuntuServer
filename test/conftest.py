@@ -10,8 +10,8 @@ from aas2openapi import models
 from aas2openapi.middleware import Middleware
 from requests import get
 
-response_aas = get("http://localhost:8081/shells")
-response_sm = get("http://localhost:8082/submodels")
+response_aas = get("http://193.196.36.124:8081/shells")
+response_sm = get("http://193.196.36.124:8082/submodels")
 if (response_aas.status_code == 200 and response_aas.json()["result"] != []) or (response_sm.status_code == 200 and response_sm.json()["result"] != []):
     os.system("docker-compose -f docker-compose-dev.yaml restart")
 else:
@@ -20,8 +20,8 @@ time.sleep(1)
 start = time.time()
 while True:
     try:
-        response_aas = get("http://localhost:8081/shells")
-        response_sm = get("http://localhost:8082/submodels")
+        response_aas = get("http://193.196.36.124:8081/shells")
+        response_sm = get("http://193.196.36.124:8082/submodels")
         if response_aas.status_code == 200 and response_sm.status_code == 200:
             break
     except:
