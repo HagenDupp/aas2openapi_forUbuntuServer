@@ -43,10 +43,10 @@ services:
     ports:
       - "3000:3000"
     environment:
-      VITE_REGISTRY_PATH: "http://localhost:8083/api/v3.0"
-      VITE_AAS_REPO_PATH: "http://localhost:8081/shells"
-      VITE_SUBMODEL_REPO_PATH: "http://localhost:8081/submodels"
-      VITE_CD_REPO_PATH: "http://localhost:8081/concept-descriptions"
+      VITE_REGISTRY_PATH: "http://193.196.36.124:8083/api/v3.0"
+      VITE_AAS_REPO_PATH: "http://193.196.36.124:8081/shells"
+      VITE_SUBMODEL_REPO_PATH: "http://193.196.36.124:8081/submodels"
+      VITE_CD_REPO_PATH: "http://193.196.36.124:8081/concept-descriptions"
     restart: always
   
   aas2openapi:
