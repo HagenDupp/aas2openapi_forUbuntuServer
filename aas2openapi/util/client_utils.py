@@ -45,9 +45,9 @@ def load_aas_and_submodel_repository_adress() -> Tuple[str, str]:
         logger.warning(
             "No environment variables for AAS and Submodel Repository addresses and ports found. Using default values on localhost:8081 and localhost:8082."
         )
-        os.environ["AAS_SERVER_HOST"] = "localhost"
+        os.environ["AAS_SERVER_HOST"] = "193.196.36.124"
         os.environ["AAS_SERVER_PORT"] = "8081"
-        os.environ["SUBMODEL_SERVER_HOST"] = "localhost"
+        os.environ["SUBMODEL_SERVER_HOST"] = "193.196.36.124"
         os.environ["SUBMODEL_SERVER_PORT"] = "8082"
         AAS_SERVER_ADRESS = (
             "http://"
