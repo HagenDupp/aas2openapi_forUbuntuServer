@@ -253,19 +253,19 @@ def get_field_default_value(field: ModelField) -> typing.Any:
 
 def set_example_values(model: Type[BaseModel]) -> Type[BaseModel]:
     """
-    Sets the example values of a pydantic model based on its default values.
+    Sets the example_test.env values of a pydantic model based on its default values.
 
     Args:
         model (Type[BaseModel]): Pydantic model.
 
     Returns:
-        Type[BaseModel]: Pydantic model with the example values set.
+        Type[BaseModel]: Pydantic model with the example_test.env values set.
     """
     example_dict = {}
     for field_name, field in model.__fields__.items():
         if isinstance(field.default, BaseModel) or issubclass(field.type_, BaseModel):
             class NewSMConfig(BaseConfig):
-                schema_extra = {"example": field.default.json()}
+                schema_extra = {"example_test.env": field.default.json()}
             model.__fields__[field_name].type_.Config = NewSMConfig
             model.__fields__[field_name].type_.__config__ = NewSMConfig
             model.__fields__[field_name].outer_type_.Config = NewSMConfig
@@ -273,7 +273,7 @@ def set_example_values(model: Type[BaseModel]) -> Type[BaseModel]:
         example_dict[field_name] = get_field_default_value(field)
     serialized_example = model(**example_dict).json()
     class NewConfig(BaseConfig):
-        schema_extra = {"example": serialized_example}
+        schema_extra = {"example_test.env": serialized_example}
     model.Config = NewConfig
     model.__config__ = NewConfig
     return model

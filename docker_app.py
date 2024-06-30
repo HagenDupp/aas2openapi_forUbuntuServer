@@ -2,7 +2,7 @@ import json
 from pydantic import parse_obj_as
 from typing import Union
 
-### Now create the Middleware and load the models
+### Now create the Middleware and load the models 306
 
 from aas2openapi.middleware.middleware import Middleware
 

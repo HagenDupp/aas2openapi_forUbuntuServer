@@ -86,10 +86,10 @@ def example_special_sm() -> typing.Type[models.Submodel]:
 @pytest.fixture(scope="function")
 def example_submodel_instance() -> models.Submodel:
     """
-    Returns an example instance of Submodel.
+    Returns an example_test.env instance of Submodel.
 
     Yields:
-        Iterator[typing.Generator[Submodel, typing.Any, None]]: the example instance of Submodel.
+        Iterator[typing.Generator[Submodel, typing.Any, None]]: the example_test.env instance of Submodel.
     """
     return BillOfMaterial(
         id="BOMP1",
@@ -106,10 +106,10 @@ def example_submodel_instance() -> models.Submodel:
 @pytest.fixture(scope="function")
 def example_aas_instance() -> models.AAS:
     """
-    Returns an example instance of Product.
+    Returns an example_test.env instance of Product.
 
     Yields:
-        Iterator[typing.Generator[Product, typing.Any, None]]: the example instance of Product.
+        Iterator[typing.Generator[Product, typing.Any, None]]: the example_test.env instance of Product.
     """
     return Product(
     id="Product1",
@@ -134,10 +134,10 @@ def example_aas_instance() -> models.AAS:
 @pytest.fixture(scope="function")
 def example_special_sm_instance1() -> models.Submodel:
     """
-    Returns an example instance of SpecialBillOfMaterial.
+    Returns an example_test.env instance of SpecialBillOfMaterial.
 
     Yields:
-        Iterator[typing.Generator[SpecialBillOfMaterial, typing.Any, None]]: the example instance of SpecialBillOfMaterial.
+        Iterator[typing.Generator[SpecialBillOfMaterial, typing.Any, None]]: the example_test.env instance of SpecialBillOfMaterial.
     """
     return SpecialBillOfMaterial(
         id="BOMP1_Special",
@@ -156,10 +156,10 @@ def example_special_sm_instance1() -> models.Submodel:
 @pytest.fixture(scope="function")
 def example_special_sm_instance2() -> models.Submodel:
     """
-    Returns an example instance of SpecialBillOfMaterial.
+    Returns an example_test.env instance of SpecialBillOfMaterial.
 
     Yields:
-        Iterator[typing.Generator[SpecialBillOfMaterial, typing.Any, None]]: the example instance of SpecialBillOfMaterial.
+        Iterator[typing.Generator[SpecialBillOfMaterial, typing.Any, None]]: the example_test.env instance of SpecialBillOfMaterial.
     """
     return SpecialBillOfMaterial(
         id="BOMP2_Special",
@@ -176,10 +176,10 @@ def example_special_sm_instance2() -> models.Submodel:
 @pytest.fixture(scope="function")
 def example_special_aas_instance() -> models.AAS:
     """
-    Returns an example instance of SpecialProduct.
+    Returns an example_test.env instance of SpecialProduct.
 
     Yields:
-        Iterator[typing.Generator[SpecialProduct, typing.Any, None]]: the example instance of SpecialProduct.
+        Iterator[typing.Generator[SpecialProduct, typing.Any, None]]: the example_test.env instance of SpecialProduct.
     """
     return SpecialProduct(
     id="Product1_Special",
@@ -208,10 +208,10 @@ def example_special_aas_instance() -> models.AAS:
 @pytest.fixture(scope="function")
 def empty_middleware() -> Middleware:
     """
-    Returns an example instance of Middleware.
+    Returns an example_test.env instance of Middleware.
 
     Yields:
-        Iterator[typing.Generator[Middleware, typing.Any, None]]: the example instance of Middleware.
+        Iterator[typing.Generator[Middleware, typing.Any, None]]: the example_test.env instance of Middleware.
     """
     middleware = Middleware()
     middleware.generate_model_registry_api()
@@ -221,10 +221,10 @@ def empty_middleware() -> Middleware:
 @pytest.fixture(scope="function")
 def loaded_middleware(example_aas_instance: Product, example_special_aas_instance: SpecialProduct) -> Middleware:
     """
-    Returns an example instance of Middleware with loaded models.
+    Returns an example_test.env instance of Middleware with loaded models.
 
     Yields:
-        Iterator[typing.Generator[Middleware, typing.Any, None]]: the example instance of Middleware with loaded models.
+        Iterator[typing.Generator[Middleware, typing.Any, None]]: the example_test.env instance of Middleware with loaded models.
     """
     middleware = Middleware()
     middleware.load_pydantic_model_instances([example_special_aas_instance, example_aas_instance])
@@ -239,10 +239,10 @@ def loaded_middleware(example_aas_instance: Product, example_special_aas_instanc
 @pytest.fixture(scope="function")
 def app(loaded_middleware: Middleware) -> FastAPI:
     """
-    Returns an example instance of FastAPI.
+    Returns an example_test.env instance of FastAPI.
 
     Yields:
-        Iterator[typing.Generator[FastAPI, typing.Any, None]]: the example instance of FastAPI.
+        Iterator[typing.Generator[FastAPI, typing.Any, None]]: the example_test.env instance of FastAPI.
     """
     return loaded_middleware.app
 

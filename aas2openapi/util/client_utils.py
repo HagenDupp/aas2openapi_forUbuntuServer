@@ -17,6 +17,13 @@ from logging.config import dictConfig
 import logging
 from aas2openapi.util.logging_util import LogConfig
 
+from dotenv import load_dotenv
+from pathlib import Path
+
+dotenv_path = Path('../../../example_test.env')
+load_dotenv(dotenv_path=dotenv_path)
+
+
 dictConfig(LogConfig().dict())
 logger = logging.getLogger("aas2openapi")
 
@@ -28,6 +35,7 @@ def load_aas_and_submodel_repository_adress() -> Tuple[str, str]:
     Returns:
         Tuple[str, str]: Tuple of aas and submodel repository adress
     """
+    #print(os.getenv('AAS_SERVER_PORT'))
     try:
         AAS_SERVER_ADRESS = (
             "http://"
@@ -46,9 +54,9 @@ def load_aas_and_submodel_repository_adress() -> Tuple[str, str]:
             "No environment variables for AAS and Submodel Repository addresses and ports found. Using default values on localhost:8081 and localhost:8082."
         )
         os.environ["AAS_SERVER_HOST"] = "localhost"
-        os.environ["AAS_SERVER_PORT"] = "8081"
+        os.environ["AAS_SERVER_PORT"] = "8556"
         os.environ["SUBMODEL_SERVER_HOST"] = "localhost"
-        os.environ["SUBMODEL_SERVER_PORT"] = "8082"
+        os.environ["SUBMODEL_SERVER_PORT"] = "8557"
         AAS_SERVER_ADRESS = (
             "http://"
             + os.getenv("AAS_SERVER_HOST")
@@ -61,6 +69,8 @@ def load_aas_and_submodel_repository_adress() -> Tuple[str, str]:
             + ":"
             + os.getenv("SUBMODEL_SERVER_PORT")
         )
+    print(AAS_SERVER_ADRESS, SUBMODEL_SERVER_ADRESS)
+
     return AAS_SERVER_ADRESS, SUBMODEL_SERVER_ADRESS
 
 

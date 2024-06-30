@@ -84,7 +84,7 @@ def delete_model_from_middleware(model_name: str, middleware_instance: Middlewar
 
 def recursive_model_example_string_reformatter(model: dict):
     for key, value in model.items():
-        if key == "example":
+        if key == "example_test.env":
             model[key] = json.loads(value)
         elif isinstance(value, dict):
             recursive_model_example_string_reformatter(value)

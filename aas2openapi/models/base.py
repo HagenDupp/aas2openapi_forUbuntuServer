@@ -12,7 +12,7 @@ class Referable(BaseModel):
         id_short (str): Local id of the object.
         description (str, optional): Description of the object. Defaults to None.
     """
-    id_short: str
+    id_short: Optional[str]
     description: Optional[str]
 
     @validator("description", always=True)
@@ -20,6 +20,7 @@ class Referable(BaseModel):
         if v is None:
             return ""
         return v
+
 
 class Identifiable(Referable):
     """
@@ -38,7 +39,7 @@ class Identifiable(Referable):
             values["id_short"] = values["id"]
             return values
         return values
-    
+
 
 class HasSemantics(BaseModel):
     """
@@ -55,6 +56,7 @@ class HasSemantics(BaseModel):
             return ""
         return v
 
+
 class AAS(Identifiable):
     """
     Base class for all Asset Administration Shells (AAS).
@@ -65,6 +67,7 @@ class AAS(Identifiable):
         description (str, optional): Description of the object. Defaults to None.
     """
     pass
+
 
 class Submodel(HasSemantics, Identifiable):
     """
@@ -77,6 +80,7 @@ class Submodel(HasSemantics, Identifiable):
         semantic_id (str, optional): Semantic id of the object. Defaults to None.
     """
     pass
+
 
 class SubmodelElementCollection(HasSemantics, Referable):
     """
